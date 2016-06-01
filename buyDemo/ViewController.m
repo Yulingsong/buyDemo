@@ -26,15 +26,23 @@
     
 }
 
+//可以将按钮的一些属性什么的进行一下封装，以便于调用
+-(void)addButtonsWithImage:(NSString *)image highImage:(NSString *)highImage disabledImage:(NSString *)disabledImage frame:(CGRect)frame tag:(NSInteger)tag action:(SEL)action
+{
+    UIButton *btn = [[UIButton alloc]init];
+    [btn setBackgroundImage:[UIImage imageNamed:image] forState:UIControlStateNormal];
+    [btn setBackgroundImage:[UIImage imageNamed:highImage] forState:UIControlStateHighlighted];
+    [btn setBackgroundImage:[UIImage imageNamed:disabledImage] forState:UIControlStateDisabled];
+    [btn setFrame:frame];
+    [btn addTarget:self action:action forControlEvents:UIControlEventTouchUpInside];
+    [btn setTag:tag];
+    [self.view addSubview:btn];
+}
+
+
 -(void)setSubViews
 {
-    UIButton *btn1 = [[UIButton alloc]init];
-    [self.view addSubview:btn1];
-    [btn1 setFrame:CGRectMake(30, 100, 50, 50)];
-    [btn1 setImage:[UIImage imageNamed:@"add"] forState:UIControlStateNormal];
-    [btn1 setImage:[UIImage imageNamed:@"add_highlighted"] forState:UIControlStateHighlighted];
-    [btn1 setImage:[UIImage imageNamed:@"add_disabled"] forState:UIControlStateDisabled];
-    [btn1 addTarget:self action:@selector(clickBtn1) forControlEvents:UIControlEventTouchUpInside];
+    [self addButtonsWithImage:@"add" highImage:@"add_highlighted" disabledImage:@"add_disabled" frame:CGRectMake(30, 100, 50, 50) tag:10 action:@selector(clickBtn1)];
     
     UIButton *btn2 = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.view addSubview:btn2];
