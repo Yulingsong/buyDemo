@@ -39,11 +39,13 @@
     [self.view addSubview:btn];
 }
 
-
+//添加子控件的方法
 -(void)setSubViews
 {
+    //调用了简单封装方法创建按钮，可以根据tag值啦寻找控件
     [self addButtonsWithImage:@"add" highImage:@"add_highlighted" disabledImage:@"add_disabled" frame:CGRectMake(30, 100, 50, 50) tag:10 action:@selector(clickBtn1)];
     
+    //原始的多代码创建按钮
     UIButton *btn2 = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.view addSubview:btn2];
     [btn2 setFrame:CGRectMake(295, 100, 50, 50)];
@@ -63,8 +65,6 @@
     [self.view addSubview:self.view1];
     [self.view1 setFrame:CGRectMake(80, 200, 224, 394)];
     [self.view1 setBackgroundColor:[UIColor lightGrayColor]];
-    
-    
     
 }
 
