@@ -22,6 +22,8 @@
 /** 全部商品数据 */
 @property (nonatomic,strong) NSArray *shops;
 
+/** HUD */
+@property (nonatomic,strong) UILabel *hud;
 
 @end
 
@@ -30,46 +32,46 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"buy";
-    
-    //数据
-    self.shops = @[
-                       @{
-                           @"icon":@"danjianbao",
-                           @"name":@"单肩包"
-                           },
-                       @{
-                           @"icon":@"liantiaobao",
-                           @"name":@"链条包"
-                           },
-                       @{
-                           @"icon":@"qianbao",
-                           @"name":@"钱包"
-                           },
-                       @{
-                           @"icon":@"shoutibao",
-                           @"name":@"手提包"
-                           },
-                       @{
-                           @"icon":@"shuangjianbao",
-                           @"name":@"双肩包"
-                           },
-                       @{
-                           @"icon":@"xiekuabao",
-                           @"name":@"斜挎包"
-                           },
-                       @{
-                           @"icon":@"danjianbao",
-                           @"name":@"单肩包"
-                           },
-                       @{
-                           @"icon":@"liantiaobao",
-                           @"name":@"链条包"
-                           },
-                       @{
-                           @"icon":@"qianbao",
-                           @"name":@"钱包"
-                           }
-                       ];
+//    
+//    //数据
+//    self.shops = @[
+//                       @{
+//                           @"icon":@"danjianbao",
+//                           @"name":@"单肩包"
+//                           },
+//                       @{
+//                           @"icon":@"liantiaobao",
+//                           @"name":@"链条包"
+//                           },
+//                       @{
+//                           @"icon":@"qianbao",
+//                           @"name":@"钱包"
+//                           },
+//                       @{
+//                           @"icon":@"shoutibao",
+//                           @"name":@"手提包"
+//                           },
+//                       @{
+//                           @"icon":@"shuangjianbao",
+//                           @"name":@"双肩包"
+//                           },
+//                       @{
+//                           @"icon":@"xiekuabao",
+//                           @"name":@"斜挎包"
+//                           },
+//                       @{
+//                           @"icon":@"danjianbao",
+//                           @"name":@"单肩包"
+//                           },
+//                       @{
+//                           @"icon":@"liantiaobao",
+//                           @"name":@"链条包"
+//                           },
+//                       @{
+//                           @"icon":@"qianbao",
+//                           @"name":@"钱包"
+//                           }
+//                       ];
 
     [self setSubViews];
     
@@ -97,6 +99,23 @@
     //添加删除按钮
     self.removeBtn = [self addButtonsWithImage:@"remove" highImage:@"remove_highlighted" disabledImage:@"remove_disabled" frame:CGRectMake(295, 100, 50, 50) tag:11 action:@selector(remove)];
     self.removeBtn.enabled = NO;
+    
+    //加载plist数据
+    //凡是参数名为file，都是文件的全路径
+    //只对电脑管用
+//    NSString *file = @"/Users/apple/Desktop/buyDemo/buyDemo/shops.plist";
+    
+    //一个bundle对象对应一个资源包（图片，音频，视频，plist文件）
+    //NSBundle的作用：用来访问与之对应的资源包内部的文件，可以用来获得文件的全路径
+    //项目中添加的资源都会被添加到主资源包
+    
+   
+    NSBundle *bundle = [NSBundle mainBundle];
+    
+    //利用mainBundle获得plist文件在主资源包中的全路径
+    NSString *file = [bundle pathForResource:@"shops" ofType:@"plist"];
+    self.shops = [NSArray arrayWithContentsOfFile:file];
+
     
     UIButton *changeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.view addSubview:changeBtn];
@@ -132,7 +151,7 @@
     
     //创建一个父控件（整体：存放图片和文字)
     UIView *shopView = [[UIView alloc]init];
-    shopView.backgroundColor = [UIColor orangeColor];
+//    shopView.backgroundColor = [UIColor orangeColor];
     
     //商品的索引
     NSInteger index = self.shopsView.subviews.count;
@@ -148,12 +167,12 @@
     shopView.frame = CGRectMake(shopX, shopY, shopW, shopH);
     [self.shopsView addSubview:shopView];
     
-        NSDictionary *shop = self.shops[index];
+    NSDictionary *shop = self.shops[index];
     
     
     UIImageView *iconView = [[UIImageView alloc]init];
     iconView.image = [UIImage imageNamed:shop[@"icon"]];
-    iconView.backgroundColor = [UIColor blueColor];
+//    iconView.backgroundColor = [UIColor blueColor];
     iconView.frame = CGRectMake(0, 0, shopW, shopW);
     [shopView addSubview:iconView];
     
@@ -186,6 +205,68 @@
     self.removeBtn.enabled = (self.shopsView.subviews.count != 0);
     //添加按钮什么时候可以点击，商品个数 < 总数
     self.addBtn.enabled = (self.shopsView.subviews.count != self.shops.count);
+    
+    self.hud = [[UILabel alloc]init];
+    [self.view addSubview:self.hud];
+    [self.hud setFrame:CGRectMake(35, 300, 300, 30)];
+    [self.hud setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.1]];
+    [self.hud setHidden:YES];
+    [self.hud setTextAlignment:NSTextAlignmentCenter];
+    
+//    //显示HUD
+//    if (self.removeBtn.enabled == NO)
+//    {
+//        //删光了
+////        [self.hud setHidden:NO];
+//        //定时任务
+//        //SEL:对方法的包装，使用@selector包装一个SEL数据
+////        [self performSelector:@selector(hideHUD) withObject:nil afterDelay:1.5];
+//        self.hud.alpha = 1.0;
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//            self.hud.alpha = 0.0;
+//        });
+//    }else if (self.addBtn.enabled == NO)
+//    {
+//        //加满了
+//        [self.hud setText:@"加满了"];
+////        [self performSelector:@selector(hideHUD) withObject:nil afterDelay:1.5];
+//        self.hud.alpha = 1.0;
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//            self.hud.alpha = 0.0;
+//        });
+////        [NSTimer scheduledTimerWithTimeInterval:1.5 target:self selector:@selector(hideHUD) userInfo:nil repeats:NO];       
+//    }
+    
+    NSString *text = nil;
+    //显示HUD
+    if (self.removeBtn.enabled == NO)
+    {
+        text = @"已经全部删除";
+    }else if (self.addBtn.enabled == NO)
+    {
+        text = @"已经全部添加";
+    }
+    if (text)
+    {
+        self.hud.text = text;
+        self.hud.alpha = 1.0;
+        [self.hud setHidden:NO];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            self.hud.alpha = 0.0;
+        });
+    }
 }
+
+//HUD
+//蒙板
+//指示器
+//遮盖
+
+#pragma mark 隐藏HUD
+-(void)hideHUD
+{
+    self.hud.alpha = 0.0;
+}
+
 
 @end

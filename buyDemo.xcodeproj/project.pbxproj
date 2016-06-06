@@ -15,6 +15,7 @@
 		1832372F1CFF1AB700BD4549 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1832372D1CFF1AB700BD4549 /* LaunchScreen.storyboard */; };
 		1832373A1CFF1AB700BD4549 /* buyDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 183237391CFF1AB700BD4549 /* buyDemoTests.m */; };
 		183237451CFF1AB700BD4549 /* buyDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 183237441CFF1AB700BD4549 /* buyDemoUITests.m */; };
+		18E7D0DE1D05B3C1004DD25D /* shops.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18E7D0DD1D05B3C1004DD25D /* shops.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		183237401CFF1AB700BD4549 /* buyDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = buyDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		183237441CFF1AB700BD4549 /* buyDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = buyDemoUITests.m; sourceTree = "<group>"; };
 		183237461CFF1AB700BD4549 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18E7D0DD1D05B3C1004DD25D /* shops.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = shops.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,10 +107,6 @@
 				183237231CFF1AB700BD4549 /* AppDelegate.m */,
 				183237251CFF1AB700BD4549 /* ViewController.h */,
 				183237261CFF1AB700BD4549 /* ViewController.m */,
-				183237281CFF1AB700BD4549 /* Main.storyboard */,
-				1832372B1CFF1AB700BD4549 /* Assets.xcassets */,
-				1832372D1CFF1AB700BD4549 /* LaunchScreen.storyboard */,
-				183237301CFF1AB700BD4549 /* Info.plist */,
 				1832371F1CFF1AB700BD4549 /* Supporting Files */,
 			);
 			path = buyDemo;
@@ -117,7 +115,12 @@
 		1832371F1CFF1AB700BD4549 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1832372D1CFF1AB700BD4549 /* LaunchScreen.storyboard */,
+				183237301CFF1AB700BD4549 /* Info.plist */,
+				1832372B1CFF1AB700BD4549 /* Assets.xcassets */,
+				183237281CFF1AB700BD4549 /* Main.storyboard */,
 				183237201CFF1AB700BD4549 /* main.m */,
+				18E7D0DD1D05B3C1004DD25D /* shops.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 			files = (
 				1832372F1CFF1AB700BD4549 /* LaunchScreen.storyboard in Resources */,
 				1832372C1CFF1AB700BD4549 /* Assets.xcassets in Resources */,
+				18E7D0DE1D05B3C1004DD25D /* shops.plist in Resources */,
 				1832372A1CFF1AB700BD4549 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -498,6 +502,7 @@
 				1832374B1CFF1AB700BD4549 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1832374C1CFF1AB700BD4549 /* Build configuration list for PBXNativeTarget "buyDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +511,7 @@
 				1832374E1CFF1AB700BD4549 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1832374F1CFF1AB700BD4549 /* Build configuration list for PBXNativeTarget "buyDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +520,7 @@
 				183237511CFF1AB700BD4549 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
