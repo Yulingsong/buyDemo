@@ -28,51 +28,24 @@
 @end
 
 @implementation ViewController
-
+-(NSArray *)shops
+{
+    if (!_shops)
+    {
+        NSString *file = [[NSBundle mainBundle] pathForResource:@"shops" ofType:@"plist"];
+        _shops = [NSArray arrayWithContentsOfFile:file];
+    }
+    
+    
+    return _shops;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"buy";
-//    
-//    //数据
-//    self.shops = @[
-//                       @{
-//                           @"icon":@"danjianbao",
-//                           @"name":@"单肩包"
-//                           },
-//                       @{
-//                           @"icon":@"liantiaobao",
-//                           @"name":@"链条包"
-//                           },
-//                       @{
-//                           @"icon":@"qianbao",
-//                           @"name":@"钱包"
-//                           },
-//                       @{
-//                           @"icon":@"shoutibao",
-//                           @"name":@"手提包"
-//                           },
-//                       @{
-//                           @"icon":@"shuangjianbao",
-//                           @"name":@"双肩包"
-//                           },
-//                       @{
-//                           @"icon":@"xiekuabao",
-//                           @"name":@"斜挎包"
-//                           },
-//                       @{
-//                           @"icon":@"danjianbao",
-//                           @"name":@"单肩包"
-//                           },
-//                       @{
-//                           @"icon":@"liantiaobao",
-//                           @"name":@"链条包"
-//                           },
-//                       @{
-//                           @"icon":@"qianbao",
-//                           @"name":@"钱包"
-//                           }
-//                       ];
 
+
+    //懒加载
+    
     [self setSubViews];
     
 }
@@ -110,11 +83,11 @@
     //项目中添加的资源都会被添加到主资源包
     
    
-    NSBundle *bundle = [NSBundle mainBundle];
+//    NSBundle *bundle = [NSBundle mainBundle];
     
     //利用mainBundle获得plist文件在主资源包中的全路径
-    NSString *file = [bundle pathForResource:@"shops" ofType:@"plist"];
-    self.shops = [NSArray arrayWithContentsOfFile:file];
+//    NSString *file = [bundle pathForResource:@"shops" ofType:@"plist"];
+//    self.shops = [NSArray arrayWithContentsOfFile:file];
 
     
     UIButton *changeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
