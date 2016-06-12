@@ -15,6 +15,7 @@
 		1832372F1CFF1AB700BD4549 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1832372D1CFF1AB700BD4549 /* LaunchScreen.storyboard */; };
 		1832373A1CFF1AB700BD4549 /* buyDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 183237391CFF1AB700BD4549 /* buyDemoTests.m */; };
 		183237451CFF1AB700BD4549 /* buyDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 183237441CFF1AB700BD4549 /* buyDemoUITests.m */; };
+		184193831D0D91EE0077E571 /* Shop.m in Sources */ = {isa = PBXBuildFile; fileRef = 184193821D0D91EE0077E571 /* Shop.m */; };
 		18E7D0DE1D05B3C1004DD25D /* shops.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18E7D0DD1D05B3C1004DD25D /* shops.plist */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,8 @@
 		183237401CFF1AB700BD4549 /* buyDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = buyDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		183237441CFF1AB700BD4549 /* buyDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = buyDemoUITests.m; sourceTree = "<group>"; };
 		183237461CFF1AB700BD4549 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		184193811D0D91EE0077E571 /* Shop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shop.h; sourceTree = "<group>"; };
+		184193821D0D91EE0077E571 /* Shop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shop.m; sourceTree = "<group>"; };
 		18E7D0DD1D05B3C1004DD25D /* shops.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = shops.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,6 +110,8 @@
 				183237231CFF1AB700BD4549 /* AppDelegate.m */,
 				183237251CFF1AB700BD4549 /* ViewController.h */,
 				183237261CFF1AB700BD4549 /* ViewController.m */,
+				184193811D0D91EE0077E571 /* Shop.h */,
+				184193821D0D91EE0077E571 /* Shop.m */,
 				1832371F1CFF1AB700BD4549 /* Supporting Files */,
 			);
 			path = buyDemo;
@@ -277,6 +282,7 @@
 				183237271CFF1AB700BD4549 /* ViewController.m in Sources */,
 				183237241CFF1AB700BD4549 /* AppDelegate.m in Sources */,
 				183237211CFF1AB700BD4549 /* main.m in Sources */,
+				184193831D0D91EE0077E571 /* Shop.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

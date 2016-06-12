@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "Shop.h"
 
 @interface ViewController ()
 /** 存放所有商品的view */
@@ -28,12 +29,20 @@
 @end
 
 @implementation ViewController
+
+//
 -(NSArray *)shops
 {
     if (!_shops)
     {
-        NSString *file = [[NSBundle mainBundle] pathForResource:@"shops" ofType:@"plist"];
-        _shops = [NSArray arrayWithContentsOfFile:file];
+        NSArray *dictArray = [NSArray arrayWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"shops" ofType:@"plist"]];
+//        _shops = [NSArray arrayWithContentsOfFile:file];
+        NSMutableArray *shopsArray = [NSMutableArray array];
+        for (NSDictionary *dict in dictArray)
+        {
+            Shop *shop = [Shop shopWidtDict:dict];
+            [shopsArray addObject:shop];
+        }
     }
     
     
@@ -140,17 +149,22 @@
     shopView.frame = CGRectMake(shopX, shopY, shopW, shopH);
     [self.shopsView addSubview:shopView];
     
-    NSDictionary *shop = self.shops[index];
+    //活得index位置对相应的商品数据
+//    NSDictionary *shop = self.shops[index];
+//    Shop *shop_ = [[Shop alloc]initWidtDict:shop];
+//    shop_.name = shop[@"name"];
+    Shop *shop_ = self.shops[index];
     
     
     UIImageView *iconView = [[UIImageView alloc]init];
-    iconView.image = [UIImage imageNamed:shop[@"icon"]];
-//    iconView.backgroundColor = [UIColor blueColor];
+//    iconView.image = [UIImage imageNamed:shop[@"icon"]];
+    iconView.image = [UIImage imageNamed:shop_.icon];
+    //    iconView.backgroundColor = [UIColor blueColor];
     iconView.frame = CGRectMake(0, 0, shopW, shopW);
     [shopView addSubview:iconView];
     
     UILabel *label = [[UILabel alloc]init];
-    label.text = shop[@"name"];
+    label.text = shop_.name;
     label.frame = CGRectMake(0, shopW, shopW, shopH-shopW);
     label.font = [UIFont systemFontOfSize:11];
     label.textAlignment = NSTextAlignmentCenter;
