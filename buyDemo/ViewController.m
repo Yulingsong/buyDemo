@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 #import "Shop.h"
+#import "ShopView.h"
+
 
 @interface ViewController ()
 /** 存放所有商品的view */
@@ -132,11 +134,14 @@
     CGFloat marginRow = 18;
     
     //创建一个父控件（整体：存放图片和文字)
-    UIView *shopView = [[UIView alloc]init];
-//    shopView.backgroundColor = [UIColor orangeColor];
+    ShopView *shopView = [[ShopView alloc]init];
+    
     
     //商品的索引
     NSInteger index = self.shopsView.subviews.count;
+    
+    //取出商品模型
+    shopView.shop = self.shops[index];
     
     //商品的x值
     NSInteger col = index % cols;
@@ -149,26 +154,26 @@
     shopView.frame = CGRectMake(shopX, shopY, shopW, shopH);
     [self.shopsView addSubview:shopView];
     
-    //活得index位置对相应的商品数据
-//    NSDictionary *shop = self.shops[index];
-//    Shop *shop_ = [[Shop alloc]initWidtDict:shop];
-//    shop_.name = shop[@"name"];
-    Shop *shop_ = self.shops[index];
-    
-    
-    UIImageView *iconView = [[UIImageView alloc]init];
-//    iconView.image = [UIImage imageNamed:shop[@"icon"]];
-    iconView.image = [UIImage imageNamed:shop_.icon];
-    //    iconView.backgroundColor = [UIColor blueColor];
-    iconView.frame = CGRectMake(0, 0, shopW, shopW);
-    [shopView addSubview:iconView];
-    
-    UILabel *label = [[UILabel alloc]init];
-    label.text = shop_.name;
-    label.frame = CGRectMake(0, shopW, shopW, shopH-shopW);
-    label.font = [UIFont systemFontOfSize:11];
-    label.textAlignment = NSTextAlignmentCenter;
-    [shopView addSubview:label];
+//    //活得index位置对相应的商品数据
+////    NSDictionary *shop = self.shops[index];
+////    Shop *shop_ = [[Shop alloc]initWidtDict:shop];
+////    shop_.name = shop[@"name"];
+//    Shop *shop_ = self.shops[index];
+//    
+//    
+//    UIImageView *iconView = [[UIImageView alloc]init];
+////    iconView.image = [UIImage imageNamed:shop[@"icon"]];
+//    iconView.image = [UIImage imageNamed:shop_.icon];
+//    //    iconView.backgroundColor = [UIColor blueColor];
+//    iconView.frame = CGRectMake(0, 0, shopW, shopW);
+//    [shopView addSubview:iconView];
+//    
+//    UILabel *label = [[UILabel alloc]init];
+//    label.text = shop_.name;
+//    label.frame = CGRectMake(0, shopW, shopW, shopH-shopW);
+//    label.font = [UIFont systemFontOfSize:11];
+//    label.textAlignment = NSTextAlignmentCenter;
+//    [shopView addSubview:label];
     
     //来控制按钮的可用性
     [self checkState];

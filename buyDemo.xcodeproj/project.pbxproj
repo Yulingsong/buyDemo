@@ -16,6 +16,7 @@
 		1832373A1CFF1AB700BD4549 /* buyDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 183237391CFF1AB700BD4549 /* buyDemoTests.m */; };
 		183237451CFF1AB700BD4549 /* buyDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 183237441CFF1AB700BD4549 /* buyDemoUITests.m */; };
 		184193831D0D91EE0077E571 /* Shop.m in Sources */ = {isa = PBXBuildFile; fileRef = 184193821D0D91EE0077E571 /* Shop.m */; };
+		185445281D0E8C84007E97E2 /* ShopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 185445271D0E8C84007E97E2 /* ShopView.m */; };
 		18E7D0DE1D05B3C1004DD25D /* shops.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18E7D0DD1D05B3C1004DD25D /* shops.plist */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,8 @@
 		183237461CFF1AB700BD4549 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		184193811D0D91EE0077E571 /* Shop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shop.h; sourceTree = "<group>"; };
 		184193821D0D91EE0077E571 /* Shop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shop.m; sourceTree = "<group>"; };
+		185445261D0E8C84007E97E2 /* ShopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopView.h; sourceTree = "<group>"; };
+		185445271D0E8C84007E97E2 /* ShopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopView.m; sourceTree = "<group>"; };
 		18E7D0DD1D05B3C1004DD25D /* shops.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = shops.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,6 +113,8 @@
 				183237231CFF1AB700BD4549 /* AppDelegate.m */,
 				183237251CFF1AB700BD4549 /* ViewController.h */,
 				183237261CFF1AB700BD4549 /* ViewController.m */,
+				185445261D0E8C84007E97E2 /* ShopView.h */,
+				185445271D0E8C84007E97E2 /* ShopView.m */,
 				184193811D0D91EE0077E571 /* Shop.h */,
 				184193821D0D91EE0077E571 /* Shop.m */,
 				1832371F1CFF1AB700BD4549 /* Supporting Files */,
@@ -210,6 +215,7 @@
 		183237141CFF1AB700BD4549 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = YLS;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = yulingsong;
 				TargetAttributes = {
@@ -282,6 +288,7 @@
 				183237271CFF1AB700BD4549 /* ViewController.m in Sources */,
 				183237241CFF1AB700BD4549 /* AppDelegate.m in Sources */,
 				183237211CFF1AB700BD4549 /* main.m in Sources */,
+				185445281D0E8C84007E97E2 /* ShopView.m in Sources */,
 				184193831D0D91EE0077E571 /* Shop.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
